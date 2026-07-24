@@ -1,58 +1,79 @@
-def show_workout(day_name , workout_list):
-    print(day_name)
-    for workout in workout_list:
-        print(workout["exercise"],
-          "-",
-          workout["sets"],
-          "-sets",
-          workout["reps"],
-          "-reps"
+class workout:
+    def __init__ (self,exercise,sets,reps):
+        self.exercise=exercise
+        self.sets=sets
+        self.reps=reps
 
-    )
+    def show(self):
+        print(self.exercise,"-",self.sets,"sets",self.reps,"reps")
 
-
-day1=[
-    {"exercise":"Bench Press","sets":3,"reps":4},
-    {"exercise":"Incline Bench Press","sets":3,"reps":4},
-    {"exercise":"Cable fly","sets":3,"reps":4},
-    {"exercise":"ropepull down ","sets":3,"reps":4},
-    {"exercise":"Overhead tricep pull ","sets":3,"reps":4},
-]
-
-day2=[
     
-    {"exercise":"pull up","sets":3,"reps":4},
-    {"exercise":"Romanain Deadlift","sets":3,"reps":4},
-    {"exercise":"Face-Pull","sets":3,"reps":4},
-    {"exercise":"Bicep Crul","sets":3,"reps":4},
-    {"exercise":"Preacher Crul","sets":3,"reps":4},
-    {"exercise":"Hammer Crul","sets":3,"reps":4}
-
-]
+class ChestWorkout(workout):
+    def __init__(self,exercise,sets,reps,chest_type):
+        super().__init__(exercise,sets,reps)
+        self.type=chest_type
 
 
-day4=[
-    {"exercise":"leg Press","sets":3,"reps":4},
-    {"exercise":"Squate","sets":3,"reps":4},
-    {"exercise":"Calf Raise","sets":3,"reps":4},
-    {"exercise":"Cardio","sets":3,"reps":4},
-  
+
+c1= [ChestWorkout("Bench Press",3,4,"upper"),
+     ChestWorkout("Pec dec",3,4,"mid")]
+
+
+
+class LegWorkout(workout):
+    def __init__(self,exercise,sets,reps,leg_type):
+        super().__init__(exercise,sets,reps)
+        self.type=leg_type
+
+c2= [LegWorkout("Squat",3,4,"Quads"),
+     LegWorkout("Leg press",3,4,"Quads")]
+
+
+class ShoulderWorkout(workout):
+    def __init__(self, exercise, sets, reps,shoulder_type):
+        super().__init__(exercise, sets, reps)
+        self.type=shoulder_type
+        
+c3= ShoulderWorkout("Shoulder Press",3,4,"front Delt")
+
+
+class BackWorkout(workout):
+    def __init__(self, exercise, sets, reps,back_type):
+        super().__init__(exercise, sets, reps)
+        self.type=back_type
+
+c4=BackWorkout("Lat pull down",3,4,"upper back")
+
+class ArmsWorkout(workout):
+    def __init__(self, exercise, sets, reps,arms_type):
+        super().__init__(exercise, sets, reps)
+        self.type=arms_type
+
+c5=ArmsWorkout("Bicep curls ",3,4,"Long head")
+
+class day:
+    def __init__(self, day_name,workouts):
+        self.day_name=day_name
+        self.workouts=workouts
+
+    def show_day(self):
+        print(f"\n==={self.day_name}===")
+        for w in self.workouts:
+            print(w.exercise,"-",w.type)
+            w.show()
     
-]
+
+d1=day("Chest Day",c1)
+d2=day("Leg day",c2)
+d3=day("Shoulder day",c3)
+d4=day("Back day",c4)
+d5=day("Arms day",c5)
+
+#workouts=[c1,c2,c3,c4,c5]
+
+#for w in workouts:
+ 
 
 
-day5=[
-    {"exercise":"Shoulder Press","sets":3,"reps":4},
-    {"exercise":"Laternal Raise","sets":3,"reps":4},
-    {"exercise":"Rear Delt fly","sets":3,"reps":4},
-    {"exercise":"leg Raise","sets":3,"reps":4},
-    {"exercise":"Crunchs","sets":3,"reps":4}
-    
-]
 
-show_workout("Day 1: Cheast and Tricep",day1)
-show_workout("Day2:Back and bicep split",day2)
-print("Day 3: Rest Day")
-show_workout("Day 4: Rest and Recovery Day",day4)
-show_workout("Day 5: Shoulder and Abs",day5)
-print("Rest Day and Repeat Again")
+
