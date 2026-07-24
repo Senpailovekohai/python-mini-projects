@@ -1,3 +1,4 @@
+
 items={
     "water":{"Price":0.50,"Stock":3},
     "juice":{"Price":1.20,"Stock":2},
@@ -57,6 +58,3 @@ while True:
         print("Changed: $",balance)
         print("Thanks for shoping with us!!")
         break
-
-
-
