@@ -3,17 +3,7 @@ class Product:
     def __init__(self,name,price,stock):
           self.name=name
           self.price=price
-          self.stock=stock
-
-    def items(self):
-          
-
-
-
-
-
-
-
+          self.stock=stock         
 
 class VendingMachine:
     def __init__(self,location,items):
